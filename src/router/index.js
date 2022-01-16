@@ -21,16 +21,21 @@ const routes = [
         component: () => import('../components/songs.vue')
       },
       {
-        path: 'playlist',
-        name: 'playlist',
-        component: () => import('../components/playList.vue')
+        path: 'top',
+        name: 'top',
+        component: () => import('../components/Top.vue')
       },
       {
-        path: 'mv',
-        name: 'mv',
-        component: () => import('../components/Mv.vue')
+        path: 'playlist',
+        name: 'playlist',
+        component: () => import('../components/Playlist.vue')
       }
     ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: ()=>import('../components/Search.vue')
   },
 
 ]

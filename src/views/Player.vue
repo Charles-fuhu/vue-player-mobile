@@ -14,7 +14,7 @@ export default {
         artist: '',
         url: '',
         cover: '',
-        lrc: '',
+        lrc: `.`,
       },
     };
   },

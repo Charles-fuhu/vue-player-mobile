@@ -3,13 +3,24 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/global.css'
+import './assets/css/icon.css'
 import APlayer from '@moefe/vue-aplayer';
+import 'amfe-flexible'
+import 'amfe-flexible/index.js'
+
+Vue.filter('formatCount', (count) => {
+  if (count / 10000 > 10) {
+    return parseInt(count / 10000) + '万';
+  } else {
+    return count;
+  }
+})
 import {
   Button,
   Icon, NavBar,
   Swipe, SwipeItem, Grid, GridItem,
   Image as VanImage,
-  Lazyload
+  Lazyload, List
 } from 'vant';
 Vue.use(Grid);
 Vue.use(GridItem);
@@ -26,6 +37,7 @@ Vue.use(APlayer, {
   defaultCover: '',
   productionTip: true,
 });
+Vue.use(List);
 Vue.config.productionTip = false
 
 new Vue({
