@@ -1,11 +1,11 @@
 # f-player
-
-## Project setup
+移动端适配的音乐播放器，功能慢慢开发中
+项目安装依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+项目运行
 ```
 yarn serve
 ```
@@ -15,5 +15,4 @@ yarn serve
 yarn build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
