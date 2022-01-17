@@ -4,7 +4,7 @@
             class="list_item"
             v-for="item in GMlist"
             :key="item.id"
-            @click="toplaylistdetail(item.id)"
+            @click="toPlaylistsongs(item.id)"
         >
             <div class="i_pic">
                 <van-image class="i_pic" :src="item.coverImgUrl" />
@@ -40,7 +40,9 @@ export default {
                     }
                 }
             }
-
+        },
+        toPlaylistsongs(id) {
+            this.$router.push(`playlistsongs?id=${id}`);
         }
     },
     mounted() {
@@ -51,7 +53,7 @@ export default {
 
 <style lang="less" scoped>
 .gmlist_body {
-   padding: 20px;
+    padding: 20px;
     .list_item {
         margin: 6px 0;
         display: flex;

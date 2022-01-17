@@ -6,14 +6,13 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path:'/',
+    redirect:'/home/songs'
   },
   {
-    path: '/info',
-    name: 'Info',
-    component: () => import('../views/Info.vue'),
+    path: '/home',
+    name: 'home',
+    component: Home,
     children: [
       {
         path: 'songs',
@@ -29,13 +28,18 @@ const routes = [
         path: 'playlist',
         name: 'playlist',
         component: () => import('../components/Playlist.vue')
+      },
+      {
+        path: 'playlistsongs',
+        name: 'Playlistsongs',
+        component: () => import('../components/Playlistsongs.vue')
       }
     ]
   },
   {
     path: '/search',
     name: 'search',
-    component: ()=>import('../components/Search.vue')
+    component: () => import('../components/Search.vue')
   },
 
 ]

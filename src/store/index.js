@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { songUrl, getLyc, getSongDetail } from '../api/songs'
+import { playlistDetail } from '../api/playlist'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    playInfo:'' ,
-    playerList: []
+    playInfo: '',
+    playList: []
   },
   mutations: {
     playMusic(state, obj) {
-      state.playInfo= obj
-      
-      // state.playerList.push(obj)
-    }
+      state.playInfo = obj
+    },
+    getPlayList() { }
   },
   actions: {
     async setPlayer({ commit }, payload) {
@@ -27,11 +27,9 @@ export default new Vuex.Store({
       obj.cover = res.songs[0].al.picUrl
       obj.id = payload.id
       obj.lrc = lyric.lrc.lyric
-      
-      obj.url = song[0].url
+     obj.url = song[0].url
       commit("playMusic", obj)
-    }
-
+    },
   },
 
 })

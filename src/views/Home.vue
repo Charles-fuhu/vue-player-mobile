@@ -1,24 +1,16 @@
 <template>
   <div id="global-container">
-    <van-nav-bar title="Fun音乐" @click-left="$router.go(-1)">
-      <template #left>
-        <van-icon name="arrow-left" size="1.4em" />
-      </template>
-      <template #right>
-        <van-icon name="search" size="25" @click="$router.push('/search')"></van-icon>
-      </template>
-    </van-nav-bar>
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+    <van-swipe class="swiper" :autoplay="3000">
       <van-swipe-item v-for="item in banner" :key="item.imageUrl">
-        <img v-lazy="item.imageUrl" width height="150px" />
+        <img v-lazy="item.imageUrl" class="img" />
       </van-swipe-item>
     </van-swipe>
-    <div id="grid">
-      <van-grid :border="false" :column-num="3">
-        <van-grid-item to="/info/top" text="排行榜" class="active" />
-        <van-grid-item to="/info/songs" text="最新单曲" />
-        <van-grid-item to="/info/playlist" text="精选歌单" />
-      </van-grid>
+    <van-tabs v-model="active">
+        <van-tab title="排行榜" to="/home/top"></van-tab>
+        <van-tab title="最新单曲" to="/home/songs"></van-tab>
+        <van-tab title="精选歌单" to="/home/playlist"></van-tab>
+      </van-tabs>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -28,7 +20,8 @@ import { getBanner } from "../api/home"
 export default {
   data() {
     return {
-      banner: []
+      banner: [],
+      active: 1
     }
   },
   methods: {
@@ -45,6 +38,13 @@ export default {
 
 <style lang="less" scoped>
 #global-container {
-  flex: 0 0;
+  .swiper {
+    height: 150px;
+    .img {
+      width: 375px;
+      height: 146px;
+      display: block;
+    }
+  }
 }
 </style>

@@ -12,7 +12,7 @@
                     <div class="item_txt">
                         <div class="t_songname van-ellipsis">{{ song.name }}</div>
                         <div class="t_songby van-ellipsis">
-                            <span>{{ song.song.album.artists[0].name }}</span>
+                            <span>{{ song.ar[0].name }}</span>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { newSong } from "../api/songs"
+import { playlistDetail } from "../api/playlist"
 import { mapActions } from "vuex"
 export default {
     data() {
@@ -31,14 +31,15 @@ export default {
         }
     },
     methods: {
-        async getNewSong() {
-            const { data: { result: res } } = await newSong(10)
-            this.songList = res
-       },
+        async getPlayList(id) {
+            const { data: res } = await playlistDetail(id)
+            this.songList = res.playlist.tracks;
+        },
         ...mapActions(['setPlayer'])
     },
-    created() {
-        this.getNewSong()
+    mounted() {
+        const { id } = this.$route.query
+        this.getPlayList(id)
     }
 }
 </script>

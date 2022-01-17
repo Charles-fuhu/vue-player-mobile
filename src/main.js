@@ -20,8 +20,10 @@ import {
   Icon, NavBar,
   Swipe, SwipeItem, Grid, GridItem,
   Image as VanImage,
-  Lazyload, List
+  Lazyload, List, Tab, Tabs
 } from 'vant';
+Vue.use(Tab);
+Vue.use(Tabs);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Swipe);

@@ -11,7 +11,7 @@
                     class="playlistItem"
                     v-for="(pl, index) in playlists"
                     :key="index"
-                    @click="toplaylistdetail(pl.id)"
+                    @click="toPlaylistsongs(pl.id)"
                 >
                     <div class="coverImg">
                         <van-image class="img" :src="pl.coverImgUrl" fit="cover" />
@@ -28,7 +28,9 @@
 </template>
 
 <script>
+
 import { getPlayList } from '../api/playlist'
+
 export default {
     data() {
         return {
@@ -59,8 +61,11 @@ export default {
                 if (data.playlists.length < 50) this.finished = true;
             }
         },
+        toPlaylistsongs(id) {
+            this.$router.push(`playlistsongs?id=${id}`);
+        }
     },
-    mounted(){
+    mounted() {
         this.getPlayList()
     }
 }

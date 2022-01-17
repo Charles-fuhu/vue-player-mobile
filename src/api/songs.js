@@ -20,8 +20,7 @@ export function getSongDetail(ids) {
         params: {
             ids
         }
-
-    })
+   })
 }
 //获取歌词
 export function getLyc(id) {
