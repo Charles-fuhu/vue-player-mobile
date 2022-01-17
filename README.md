@@ -13,7 +13,7 @@ yarn serve
 项目打包
 ```
 yarn build
-
+![输入图片说明](src/assets/1.png)
 ![首页](src/assets/1.png)
 ![歌单](src/assets/2.png)
 ![榜单](src/assets/3.png)
